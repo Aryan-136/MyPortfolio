@@ -6,11 +6,12 @@
     <meta name="description" content="Aryan Pandya's Portfolio - Cybersecurity Expert | Developer | UI/UX Designer">
     <title>Aryan Pandya | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <button id="theme-toggle" class="btn">Toggle Theme</button>
 </head>
 <body>
+    <!-- Header and Navigation -->
     <header>
-        <nav>
+        <button id="navbar-toggle" class="btn">☰</button>
+        <nav id="navbar" class="hidden">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -26,6 +27,7 @@
         </section>
     </header>
 
+    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
         <p>I'm Aryan Pandya, a cybersecurity professional with experience in DDoS protection, fuzzing, and developing audit scripts. I'm also passionate about web development and UI/UX design.</p>
@@ -35,67 +37,80 @@
         </ul>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="project-card">
-            <h3>DDoS Protection System</h3>
-            <p>Developed a robust DDoS protection system for cloud architecture under the Ministry of Defence (DRDO).</p>
-        </div>
-        <div class="project-card">
-            <h3>Audit Script for Windows/Linux</h3>
-            <p>Created an audit script for Windows 11 and Linux as per CIS benchmarks for Smart India Hackathon 2024.</p>
-        </div>
-        <div class="project-card">
-            <h3>CTF Platform Development</h3>
-            <p>Built a CTF platform for a college-level hackathon with various challenges.</p>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="project1.jpg" alt="Project 1">
+                <img src="project2.jpg" alt="Project 2">
+                <img src="project3.jpg" alt="Project 3">
+            </div>
+            <button class="carousel-prev">‹</button>
+            <button class="carousel-next">›</button>
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-chart">
+            <div class="skill" data-skill="90">Cybersecurity</div>
+            <div class="skill" data-skill="80">Web Development</div>
+            <div class="skill" data-skill="70">UI/UX Design</div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery with Filters -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="filters">
+            <button data-filter="all">All</button>
+            <button data-filter="web">Web Development</button>
+            <button data-filter="design">Design</button>
+        </div>
+        <div class="portfolio-items">
+            <div class="item web"><img src="web-project.jpg" alt="Web Project"></div>
+            <div class="item design"><img src="design-project.jpg" alt="Design Project"></div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
     <section id="blog">
         <h2>Blog</h2>
         <p>Check out my latest blog posts on cybersecurity and national security. <a href="https://medium.com/@aryanpandya" target="_blank">Visit my Medium</a>.</p>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/{your_form_id}" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/{your_form_id}" method="POST">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>
             <input type="email" id="email" name="_replyto" required>
             <label for="message">Message</label>
             <textarea id="message" name="message" required></textarea>
+            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
             <button type="submit">Send Message</button>
         </form>
     </section>
 
+    <!-- Resume Section -->
+    <section id="resume">
+        <h2>Resume</h2>
+        <p>Download my <a href="resume.pdf" download>Resume</a> or view it <a href="resume.pdf" target="_blank">here</a>.</p>
+    </section>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="btn">Top</button>
+
+    <!-- Footer -->
     <footer>
         <p>© 2024 Aryan Pandya And Team. <a href="https://www.linkedin.com/in/aryanpandya/" target="_blank">LinkedIn</a></p>
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
-    <button id="scroll-to-top" class="btn">Top</button>
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="carousel">
-        <div class="carousel-images">
-            <img src="project1.jpg" alt="Project 1">
-            <img src="project2.jpg" alt="Project 2">
-            <img src="project3.jpg" alt="Project 3">
-        </div>
-        <button class="carousel-prev">‹</button>
-        <button class="carousel-next">›</button>
-    </div>
-</section>
-
-    <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-chart">
-        <div class="skill" data-skill="90">Cybersecurity</div>
-        <div class="skill" data-skill="80">Web Development</div>
-        <div class="skill" data-skill="70">UI/UX Design</div>
-    </div>
-</section>
-
 </body>
 </html>
