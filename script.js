@@ -1,4 +1,10 @@
-// Smooth Scroll for Navigation Links
+// Responsive Navbar Toggle
+document.getElementById('navbar-toggle').addEventListener('click', function() {
+    var navbar = document.getElementById('navbar');
+    navbar.classList.toggle('active');
+});
+
+// Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -8,49 +14,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact Form Validation
-const form = document.querySelector('form');
-form.addEventListener('submit', function(e) {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    if (name === '' || email === '' || message === '') {
-        alert('Please fill out all fields.');
-        e.preventDefault();
-    } else if (!validateEmail(email)) {
-        alert('Please enter a valid email address.');
-        e.preventDefault();
-    } else {
-        alert('Message sent successfully!');
-    }
+// Carousel Functionality
+const prevButton = document.querySelector('.carousel-prev');
+const nextButton = document.querySelector('.carousel-next');
+const carouselImages = document.querySelector('.carousel-images');
+const totalImages = document.querySelectorAll('.carousel-images img').length;
+let currentIndex = 0;
+
+function updateCarousel() {
+    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalImages - 1;
+    updateCarousel();
 });
 
-// Email Validation Function
-function validateEmail(email) {
-    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    return re.test(String(email).toLowerCase());
-}
-
-// Dark/Light Mode Toggle
-const toggleButton = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-
-if (currentTheme) {
-    document.body.classList.add(currentTheme);
-}
-
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const theme = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
-    localStorage.setItem('theme', theme);
+nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+    updateCarousel();
 });
 
 // Scroll-to-Top Button
 const scrollToTopButton = document.getElementById('scroll-to-top');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
+    if (window.scrollY > 200) {
         scrollToTopButton.style.display = 'block';
     } else {
         scrollToTopButton.style.display = 'none';
@@ -61,31 +50,32 @@ scrollToTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Image Carousel
-const prevButton = document.querySelector('.carousel-prev');
-const nextButton = document.querySelector('.carousel-next');
-const carouselImages = document.querySelector('.carousel-images');
-let index = 0;
+// Portfolio Filtering
+const filterButtons = document.querySelectorAll('#portfolio .filters button');
+const portfolioItems = document.querySelectorAll('#portfolio .portfolio-items .item');
 
-nextButton.addEventListener('click', () => {
-    index = (index + 1) % carouselImages.children.length;
-    updateCarousel();
-});
-
-prevButton.addEventListener('click', () => {
-    index = (index - 1 + carouselImages.children.length) % carouselImages.children.length;
-    updateCarousel();
-});
-
-function updateCarousel() {
-    const offset = -index * 100;
-    carouselImages.style.transform = `translateX(${offset}%)`;
-}
-
-// Interactive Skills Section
-document.querySelectorAll('.skill').forEach(skill => {
-    skill.addEventListener('mouseover', () => {
-        const skillValue = skill.getAttribute('data-skill');
-        skill.style.setProperty('--skill', `${skillValue}%`);
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        portfolioItems.forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
     });
+});
+
+// Form Validation (Simple Example)
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        event.preventDefault();
+    }
 });
