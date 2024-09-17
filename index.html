@@ -9,9 +9,20 @@
 </head>
 <body>
     <header>
-        <h1>Aryan Pandya</h1>
-        <p>Cybersecurity Expert | Developer | UI/UX Designer</p>
-        <a href="#contact" class="btn">Contact Me</a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <section id="home">
+            <h1>Aryan Pandya</h1>
+            <p>Cybersecurity Expert | Developer | UI/UX Designer</p>
+            <a href="#contact" class="btn">Contact Me</a>
+        </section>
     </header>
 
     <section id="about">
@@ -41,28 +52,26 @@
 
     <section id="blog">
         <h2>Blog</h2>
-        <p>Check out my latest blog posts on cybersecurity and national security. <a href="https://medium.com/@aryanpandya">Visit my Medium</a>.</p>
+        <p>Check out my latest blog posts on cybersecurity and national security. <a href="https://medium.com/@aryanpandya" target="_blank">Visit my Medium</a>.</p>
     </section>
 
     <section id="contact">
         <h2>Contact Me</h2>
-        <form action="mailto:pandyaaryanp348@gmail.com" method="post" enctype="text/plain">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" required></textarea>
-
-    <button type="submit">Send Message</button>
-</form>
+        <form action="https://formspree.io/f/{your_form_id}" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="_replyto" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <footer>
         <p>© 2024 Aryan Pandya And Team. <a href="https://www.linkedin.com/in/aryanpandya/" target="_blank">LinkedIn</a></p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
